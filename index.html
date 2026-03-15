@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Ero Tarts — Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<div class="login-bg"></div>
+
+<div class="login-card">
+
+  <div class="login-logo-wrap" id="loginLogoWrap">
+    <span class="login-logo-placeholder">Logo</span>
+  </div>
+
+  <div class="login-site-name site-name">Ero Tarts</div>
+  <div class="login-tagline site-tagline">YES WE ARE SWEET</div>
+
+  <form id="loginForm" onsubmit="handleLogin(event)">
+    <label class="login-label" for="passInput">Access Password</label>
+
+```
+<div class="login-input-wrap">
+  <input
+    class="login-input"
+    id="passInput"
+    type="password"
+    autocomplete="current-password"
+    placeholder="••••••••"
+    spellcheck="false"
+  >
+  <button type="button" class="toggle-pass" onclick="togglePass()" title="Show/hide">
+    <svg id="eyeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+  </button>
+</div>
+
+<button class="login-btn" type="submit">Enter</button>
+<div class="login-error" id="loginError"></div>
+```
+
+  </form>
+
+  <div class="login-footer">
+    Made with love ❤ <span style="color:#444">1097</span><br>
+    Report · 18 / V.S.C. 427
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+
+<script>
+/* Try to load logo */
+(async () => {
+  const res = await fetch('data/config.json').then(r=>r.json()).catch(()=>({}));
+  const logoSrc = res?.logo?.image;
+  if (logoSrc) {
+    const img = new Image();
+    img.onload = () => {
+      const wrap = document.getElementById('loginLogoWrap');
+      wrap.innerHTML = '';
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:10px;';
+      wrap.appendChild(img);
+    };
+    img.src = logoSrc;
+  }
+})();
+
+function togglePass() {
+  const inp = document.getElementById('passInput');
+  const icon = document.getElementById('eyeIcon');
+  if (inp.type === 'password') {
+    inp.type = 'text';
+    icon.innerHTML = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+      <line x1="1" y1="1" x2="23" y2="23"/>`;
+  } else {
+    inp.type = 'password';
+    icon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>`;
+  }
+}
+</script>
+
+</body>
+</html>
