@@ -1,0 +1,23 @@
+{
+  "site": {
+    "name": "Ero Tarts",
+    "tagline": "YES WE ARE SWEET",
+    "domain": "ero-tarts.co"
+  },
+  "player": {
+    "title": "Jane Willow Leaked Real Life",
+    "subtitle": "Jane Willow",
+    "image": "images/player.jpg",
+    "seekPct": 63,
+    "timeDisplay": "−1:37"
+  },
+  "logo": {
+    "image": "images/logo.png"
+  },
+  "timestamps": [
+    { "src": "images/thumb-0.jpg", "time": "0:01", "pct": 1,  "label": "Scene 1",  "active": false },
+    { "src": "images/thumb-1.jpg", "time": "0:02", "pct": 2,  "label": "Scene 2",  "active": false },
+    { "src": "images/thumb-2.jpg", "time": "1:14", "pct": 46, "label": "Scene 3",  "active": false },
+    { "src": "images/thumb-3.jpg", "time": "1:37", "pct": 63, "label": "Current",  "active": true  }
+  ]
+}
